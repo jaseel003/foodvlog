@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>makar</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{% static 'pr/css/bootstrap.min.css' %}">
+      <!-- style css -->
+      <link rel="stylesheet" href="{% static 'pr/css/style.css' %}">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="{% static 'pr/css/responsive.css' %}">
+      <!-- fevicon -->
+      <link rel="icon" href="{% static 'pr/images/fevicon.png' %}" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="{% static 'pr/css/jquery.mCustomScrollbar.min.css' %}">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/pr/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+      <style>
+         .about .titlepage p {
+         border:None;
+         }
+      </style>
+   </head>
+   <!-- body -->
+   <body class="main-layout">
+      <!-- about section -->
+      <div id="about" class="about">
+         <div class="container">
+            <div class="row ">
+               <div class="col-md-5">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="titlepage">
+                           <h2>{{pr.name}}</h2>
+                           <p style="color:black">{{pr.desc}}</p><br>
+                           <p style="color:black">Price :{{pr.price}} Rs</p><br>
+                           <p style="color:black">Stock :{{pr.stock}}</p><br>
+                           {% if pr.stock == 0 %}
+                           <h1  style="color:red">Sorry,No Stocks left!!!</h1>
+                           {% else %}
+                           <a href="{% url 'addcart' pr.id %}"><button class="btn btn-success">Add to Cart</button></a>
+                           {% endif %}
+                           <br><br><br><br><br>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+               <div class="col-md-7">
+                  <div class="about_right">
+                     <figure><img src="{{pr.img.url}}" style="width:500px;height:500px" alt="#"/></figure>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- about section -->
+      <!-- Javascript files-->
+<!--      <script src="{% static 'pr/js/jquery.min.js' %}"></script>-->
+<!--      <script src="{% static 'pr/js/popper.min.js' %}"></script>-->
+<!--      <script src="{% static 'pr/js/bootstrap.bundle.min.js' %}"></script>-->
+<!--      <script src="{% static 'pr/js/jquery-3.0.0.min.js' %}"></script>-->
+<!--      &lt;!&ndash; sidebar &ndash;&gt;-->
+<!--      <script src="{% static 'pr/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>-->
+<!--      <script src="{% static 'pr/js/custom.js' %}"></script>-->
+<!--      <script>-->
+<!--         function openNav() {-->
+<!--           document.getElementById("mySidepanel").style.width = "250px";-->
+<!--         }-->
+
+<!--         function closeNav() {-->
+<!--           document.getElementById("mySidepanel").style.width = "0";-->
+<!--         }-->
+<!--      </script>-->
+<!--      <script>-->
+<!--         // This example adds a marker to indicate the position of Bondi Beach in Sydney,-->
+<!--         // Australia.-->
+<!--         function initMap() {-->
+<!--           var map = new google.maps.Map(document.getElementById('map'), {-->
+<!--             zoom: 11,-->
+<!--             center: {lat: 40.645037, lng: -73.880224},-->
+<!--             });-->
+
+<!--         var image = 'pr/images/maps-and-flags.png';-->
+<!--         var beachMarker = new google.maps.Marker({-->
+<!--             position: {lat: 40.645037, lng: -73.880224},-->
+<!--             map: map,-->
+<!--             icon: image-->
+<!--           });-->
+<!--         }-->
+<!--      </script>-->
+      <!-- google map js -->
+<!--      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>-->
+      <!-- end google map js -->
+   </body>
+</html>
+{% endblock %}
